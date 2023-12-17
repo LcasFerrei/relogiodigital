@@ -6,59 +6,69 @@
     <link rel="stylesheet" href="">
     <title>RELOGIO DIGITAL</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Open+Sans:wght@300;400;500&display=swap');
-
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
     * {
-        margin: 0;
-        padding: 0;
-        font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
     }
 
-    body{
-        height: 100vh;
-        background: linear-gradient(120deg, #ffe53bd8, #ff2525da);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    body {
+    height: 100vh;
+    background: linear-gradient(120deg, #ffffffd8, #9c7f7fda);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     }
 
     .relogio {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        height: 200px;
-        width: 550px;
-        background: transparent;
-        border-radius: 3px;
-        box-shadow: 0px 8px 10px rgba(0, 0, 0, 5);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 200px;
+    width: 550px;
+    background: transparent;
+    border-radius: 3px;
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, .5);
     }
 
     .relogio div {
-        height: 170px;
-        width: 150px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        font-size: 60px;
-        color: #fff;
-        background: rgba(5, 5, 5, 0.9);
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, .7);
-        border-radius: 7px;
-        letter-spacing: 3px;
+    height: 170px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(238, 255, 0);
+    background: rgba(5, 5, 5, .8);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, .5);
+    border-radius: 7px;
+    letter-spacing: 3px;
     }
 
     .relogio span {
-        font-weight: bolder;
-        font-size: 60px;
+    font-weight: bolder;
+    font-size: 25px;
     }
 
     .relogio span.tempo {
-        font-size: 10px;
+         font-size: 10px;
     }
+
+    .rodape {
+    background-color: transparent; 
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333; 
+}
     </style>
-</head>
-<body>
+    </head>
+    <body>
     <div class="relogio">
         <div>
             <span id="horas">00</span>
@@ -76,6 +86,32 @@
         </div>
     </div>
 
-    <script src="C:\Users\lucas\OneDrive\Área de Trabalho\relogiodigital\script.js"></script>
-</body>
+    <footer class="rodape">
+        <p>@LcasFerreiDev2023</p>
+    </footer>
+
+    <script>
+        const horas = document.getElementById('horas');
+        const minutos = document.getElementById('minutos');
+        const segundos = document.getElementById('segundos');
+
+         const relogio = setInterval(function time() {
+            let dateToday = new Date();
+            let hr = dateToday.getHours();
+            let min = dateToday.getMinutes();
+            let s = dateToday.getSeconds();
+
+            if (hr < 10) hr = '0' + hr;
+
+            if (min < 10) min = '0' + min;
+
+            if (s < 10) s = '0' + s;
+
+            horas.textContent = hr;
+            minutos.textContent = min;
+            segundos.textContent = s;
+
+        })
+    </script>
+    </body>
 </html> 
